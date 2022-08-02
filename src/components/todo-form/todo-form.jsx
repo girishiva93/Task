@@ -9,17 +9,19 @@ export const TodoForm = () => {
 
   const handleAddTodo = () => {
     // Fin an ability to add new task
-
-    console.log(todos);
-    setTodos((prevTodos) => [
-      {
-        id: primaryKey + 1,
-        label: task,
-        checked: false,
-      },
-      ...prevTodos,
-    ]);
-    setPrimaryKey(primaryKey + 1);
+    if (task === "") {
+      console.log("error - can't add empty object");
+    } else {
+      setTodos((prevTodos) => [
+        {
+          id: primaryKey + 1,
+          label: task,
+          checked: false,
+        },
+        ...prevTodos,
+      ]);
+      setPrimaryKey(primaryKey + 1);
+    }
   };
 
   const handleKeyUp = (e) => {
